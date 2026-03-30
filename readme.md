@@ -124,31 +124,3 @@ POST	/compras/	            Crear una compra	                  Sí
 
 
 
-## 🖼️ Imágenes del proyecto
-
-**Login**  
-![Login](https://raw.githubusercontent.com/albcv/tienda_online/main/img/login.png)
-
-**Registro**  
-![Formulario de registro](img/registro.png)
-
-**Inicio**  
-![Página de inicio](img/inicio.png)
-
-**Perfil**  
-![Perfil de usuario](img/perfil.png)
-
-**Productos**  
-![Listado de productos](img/productos.png)
-
-**Sección Deporte**  
-![Filtro por categoría deporte](img/seccion_deporte.png) 
-
-**Carrito**  
-![Modal del carrito](img/carrito.png)
-
-**Panel de administración**  
-![Panel de admin de Django](img/panel_admin.png)
-
-## 📊 Modelo lógico de la base de datos
-![Diagrama del modelo lógico](img/modelo_logico.png)
