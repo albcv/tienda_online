@@ -3,7 +3,8 @@ import { API_URL } from './config';
 
 export interface CompraPayload {
   total: number;
-  productos: number[]; // Array de IDs de productos
+  productos: number[];
+  moneda: number;  
 }
 
 export const crearCompra = async (data: CompraPayload) => {

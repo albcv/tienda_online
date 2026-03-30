@@ -12,7 +12,7 @@ export function Navegación() {
   const navigate = useNavigate();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const { totalItems } = useCart();
+  const { totalItems, clearCart } = useCart(); // ← se añade clearCart
 
   // Cerrar menú al hacer clic fuera
   useEffect(() => {
@@ -33,6 +33,7 @@ export function Navegación() {
 
   const handleLogout = async () => {
     await logoutUser();
+    clearCart();           // ← elimina el carrito del usuario actual
     navigate('/login');
   };
 

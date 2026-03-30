@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Q
 
-from ..models import Producto
+from ..models import Producto, Cliente
 from ..serializers import ProductoSerializer, CompraSerializer
 
 @api_view(['GET'])
@@ -44,8 +44,18 @@ def productos(request):
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def crear_compra(request):
+    try:
+        cliente = request.user.profile
+    except Cliente.DoesNotExist:
+        return Response({"error": "Usuario no tiene perfil de cliente"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
+    
     serializer = CompraSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save(usuario=request.user)  
+        serializer.save(cliente=cliente)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    # Depuración: imprime en consola del backend
+    print("Errores del serializador:", serializer.errors)
+    # Devuelve los errores detallados al frontend
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

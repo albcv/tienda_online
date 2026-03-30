@@ -11,23 +11,37 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   const { cart, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
 
- const handleCheckout = async () => {
-  setLoading(true);
-  try {
-    await crearCompra({
-      total: totalPrice,
-      productos: cart.map(item => item.id), // Solo los IDs
-    });
-    alert('Compra realizada con éxito');
-    clearCart();
-    onClose();
-  } catch (error) {
-    console.error(error);
-    alert('Error al procesar la compra');
-  } finally {
-    setLoading(false);
+  const totalRedondeado = parseFloat(totalPrice.toFixed(2));
+
+  const handleCheckout = async () => {
+    if (cart.length === 0) return;
+    setLoading(true);
+    try {
+      // Obtener el ID de la moneda del primer producto (se asume que todos los productos tienen la misma moneda)
+      const monedaId = cart[0]?.moneda?.id;
+      if (!monedaId) throw new Error('No se pudo determinar la moneda');
+
+      await crearCompra({
+        total: totalRedondeado,
+        productos: cart.map(item => item.id), // Solo los IDs de los productos
+        moneda: monedaId,
+      });
+      alert('Compra realizada con éxito');
+      clearCart();
+      onClose();
+    } catch (error: any) {
+  console.error(error);
+  let errorMsg = 'Error al procesar la compra';
+  if (error.response && error.response.data) {
+    errorMsg = JSON.stringify(error.response.data);
+  } else if (error.message) {
+    errorMsg = error.message;
   }
-};
+  alert(errorMsg);
+} finally {
+      setLoading(false);
+    }
+  };
 
   if (!isOpen) return null;
 

@@ -20,7 +20,15 @@ class ProductoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CompraSerializer(serializers.ModelSerializer):
+    productos = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=Producto.objects.all()
+    )
+    moneda = serializers.PrimaryKeyRelatedField(
+        queryset=Moneda.objects.all()
+    )
+
     class Meta:
         model = Compra
-        fields = ['id', 'usuario', 'productos', 'total', 'fecha_compra']
-        read_only_fields = ['id', 'fecha_compra']
+        fields = ['id', 'cliente', 'productos', 'total', 'moneda', 'fecha_compra']
+        read_only_fields = ['id', 'cliente', 'fecha_compra']

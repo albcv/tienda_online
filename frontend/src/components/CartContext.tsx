@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect} from 'react';
 import type { ReactNode } from 'react';
 import type { Producto } from '../api/productos';
 
@@ -18,14 +18,42 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+// Obtener la clave de localStorage para el usuario actual
+const getCartStorageKey = (): string | null => {
+  const userStr = localStorage.getItem('user');
+  if (!userStr) return null;
+  try {
+    const user = JSON.parse(userStr);
+    return `cart_${user.id}`;
+  } catch {
+    return null;
+  }
+};
 
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  // Cargar carrito cuando cambia el usuario (al iniciar sesión)
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    const storageKey = getCartStorageKey();
+    if (storageKey) {
+      const storedCart = localStorage.getItem(storageKey);
+      if (storedCart) {
+        setCart(JSON.parse(storedCart));
+      } else {
+        setCart([]);
+      }
+    } else {
+      setCart([]);
+    }
+  }, []); // Se ejecuta una vez al montar, pero también se podría escuchar cambios en localStorage
+
+  // Guardar carrito cada vez que cambie, pero solo si hay un usuario logueado
+  useEffect(() => {
+    const storageKey = getCartStorageKey();
+    if (storageKey) {
+      localStorage.setItem(storageKey, JSON.stringify(cart));
+    }
   }, [cart]);
 
   const addToCart = (product: Producto, quantity: number = 1) => {
@@ -58,7 +86,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const clearCart = () => setCart([]);
+  const clearCart = () => {
+    setCart([]);
+    const storageKey = getCartStorageKey();
+    if (storageKey) {
+      localStorage.removeItem(storageKey);
+    }
+  };
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce(

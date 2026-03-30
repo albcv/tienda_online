@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Producto, Categoria, Compra, Cliente, Moneda
+
 
 class ProductoAdmin(admin.ModelAdmin):
     # Filtro lateral por categoría
@@ -35,9 +35,3 @@ class ProductoAdmin(admin.ModelAdmin):
         if obj:
             return readonly + ('ver_imagen',)
         return readonly
-
-admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Categoria)
-admin.site.register(Compra)
-admin.site.register(Cliente)
-admin.site.register(Moneda)
