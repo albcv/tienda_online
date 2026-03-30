@@ -127,7 +127,7 @@ POST	/compras/	            Crear una compra	                  Sí
 ## 🖼️ Imágenes del proyecto
 
 **Login**  
-![Pantalla de login](img/login.png)
+![Login](https://raw.githubusercontent.com/albcv/tienda_online/main/img/login.png)
 
 **Registro**  
 ![Formulario de registro](img/registro.png)
