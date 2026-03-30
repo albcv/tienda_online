@@ -43,27 +43,28 @@ Plataforma de comercio electrónico desarrollada con **Django (DRF)** en el back
 
 ## 📁 Estructura del proyecto (simplificada)
 
+```
 TIENDA ONLINE/
-├── frontend/ # Aplicación React + TypeScript
-│ ├── img/ # Imágenes estáticas
-│ └── media/ # Archivos subidos (imágenes de productos)
-├── tienda_app/ # Aplicación principal de Django
-│ ├── migrations/ # Migraciones de base de datos
-│ ├── models/ # Modelos (Producto, Categoria, Moneda, etc.)
-│ ├── serializers/ # Serializadores DRF
-│ ├── admin.py # Configuración del panel admin
-│ ├── urls.py # Rutas de la API
-│ └── views.py # Vistas de la API
-├── tienda_online/ # Configuración del proyecto Django
-│ ├── settings.py # Configuración (base de datos, apps, etc.)
-│ └── urls.py # Rutas principales
-├── venv/ # Entorno virtual de Python
-├── .env # Variables de entorno (clave secreta, etc.)
+├── frontend/               # Aplicación React + TypeScript
+│   ├── img/                # Imágenes estáticas
+│   └── media/              # Archivos subidos (imágenes de productos)
+├── tienda_app/             # Aplicación principal de Django
+│   ├── migrations/         # Migraciones de base de datos
+│   ├── models/             # Modelos (Producto, Categoria, Moneda, etc.)
+│   ├── serializers/        # Serializadores DRF
+│   ├── admin.py            # Configuración del panel admin
+│   ├── urls.py             # Rutas de la API
+│   └── views.py            # Vistas de la API
+├── tienda_online/          # Configuración del proyecto Django
+│   ├── settings.py         # Configuración (base de datos, apps, etc.)
+│   └── urls.py             # Rutas principales
+├── .env                    # Variables de entorno (clave secreta, etc.)
 ├── .gitignore
-├── build.sh # Script de construcción (opcional)
-├── manage.py # Comando de administración de Django
-├── readme.md # Este archivo
-└── requirements.txt # Dependencias de Python
+├── build.sh                # Script de construcción (opcional)
+├── manage.py               # Comando de administración de Django
+├── readme.md               # Este archivo
+└── requirements.txt        # Dependencias de Python
+```
 
 
 
