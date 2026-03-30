@@ -6,12 +6,16 @@ Plataforma de comercio electrónico desarrollada con **Django (DRF)** en el back
 
 - **Autenticación** con token (DRF TokenAuth)
 - Registro de usuarios con:
-  - Número de tarjeta (16 dígitos)
-  - Teléfono (entre 7 y 15 dígitos)
+
+  - Nombre de usuario
+  - Email
+  - Contraseña
+  - Número de tarjeta 
+  - Teléfono 
   - Dirección
 - Catálogo de productos con:
-  - Paginación tipo “cargar más” (offset/limit)
-  - Filtrado por categoría (desde el servidor)
+  - Paginación 
+  - Filtrado por categoría 
   - Búsqueda por nombre
   - Vista previa de imagen
   - Descripción expandible
