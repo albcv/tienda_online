@@ -151,4 +151,4 @@ POST	/compras/	            Crear una compra	                  Sí
 ![Panel de admin de Django](img/panel_admin.png)
 
 ## 📊 Modelo lógico de la base de datos
-![Diagrama del modelo logico](img/modelo_lógico.png) 
+![Diagrama del modelo lógico](img/modelo_logico.png)
