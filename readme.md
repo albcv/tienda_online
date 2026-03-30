@@ -124,33 +124,31 @@ POST	/compras/	            Crear una compra	                  Sí
 
 
 
-🖼️ Imágenes del proyecto
+## 🖼️ Imágenes del proyecto
 
-Login
-<img src="img/login.png" alt="Pantalla de login" width="300">
+**Login**  
+![Pantalla de login](img/login.png)
 
-Registro
-<img src="img/registro.png" alt="Formulario de registro" width="300">
+**Registro**  
+![Formulario de registro](img/registro.png)
 
-Inicio
-<img src="img/inicio.png" alt="Página de inicio" width="300">
+**Inicio**  
+![Página de inicio](img/inicio.png)
 
-Perfil
-<img src="img/perfil.png" alt="Perfil de usuario" width="300">
+**Perfil**  
+![Perfil de usuario](img/perfil.png)
 
-Productos
-<img src="img/productos.png" alt="Listado de productos" width="300">
+**Productos**  
+![Listado de productos](img/productos.png)
 
-Sección Deporte
-<img src="img/sección_deporte.png" alt="Filtro por categoría deporte" width="300">
+**Sección Deporte**  
+![Filtro por categoría deporte](img/sección_deporte.png) 
 
-Carrito
-<img src="img/carrito.png" alt="Modal del carrito" width="300">
+**Carrito**  
+![Modal del carrito](img/carrito.png)
 
-Panel de administración
-<img src="img/panel_admin.png" alt="Panel de admin de Django" width="300">
-
+**Panel de administración**  
+![Panel de admin de Django](img/panel_admin.png)
 
 ## 📊 Modelo lógico de la base de datos
-
-<img src="img/modelo_lógico.png" alt="Diagrama del modelo lógico" width="600">
+![Diagrama del modelo lógico](img/modelo_lógico.png) 
