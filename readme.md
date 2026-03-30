@@ -142,7 +142,7 @@ POST	/compras/	            Crear una compra	                  Sí
 ![Listado de productos](img/productos.png)
 
 **Sección Deporte**  
-![Filtro por categoría deporte](img/sección_deporte.png) 
+![Filtro por categoría deporte](img/seccion_deporte.png) 
 
 **Carrito**  
 ![Modal del carrito](img/carrito.png)
@@ -151,4 +151,4 @@ POST	/compras/	            Crear una compra	                  Sí
 ![Panel de admin de Django](img/panel_admin.png)
 
 ## 📊 Modelo lógico de la base de datos
-![Diagrama del modelo lógico](img/modelo_lógico.png) 
+![Diagrama del modelo logico](img/modelo_lógico.png) 
