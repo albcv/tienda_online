@@ -52,6 +52,10 @@ INSTALLED_APPS = [
     'tienda_app',
 ]
 
+# Add cloudinary_storage only in production (when DEBUG is False)
+if not DEBUG:
+    INSTALLED_APPS.append('cloudinary_storage')
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -92,7 +96,6 @@ DATABASES = {
         default=os.getenv('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
-     
     )
 }
 
@@ -133,12 +136,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
-
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:5173')
@@ -152,10 +152,17 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100,
 }
 
-
+# Media files (user-uploaded content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-
-
+# Cloudinary configuration for production
+if not DEBUG:
+    import cloudinary
+   
+    cloudinary.config(
+        cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+        api_key=os.getenv('CLOUDINARY_API_KEY'),
+        api_secret=os.getenv('CLOUDINARY_API_SECRET'),
+    )
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
