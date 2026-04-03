@@ -120,11 +120,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 📡 Endpoints principales
 Método	Endpoint	             Descripción	                Autenticación
-POST	/register/	          Registro de usuario	                  No
+POST	/register/	          Registro de usuario	                No
 POST	/login/	          Inicio de sesión (devuelve token)	        No
-POST	/logout/	             Cierre de sesión	                    Sí (token)
+POST	/logout/	             Cierre de sesión	                Sí (token)
 GET	/productos/	           Listado paginado de productos	        Sí
-POST	/compras/	            Crear una compra	                    Sí
+POST	/compras/	            Crear una compra	                Sí
 
 ```
 
