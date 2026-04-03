@@ -131,28 +131,28 @@ POST	/compras/	            Crear una compra	                    Sí
 ## Imágenes
 
 **Login**  
-<img src="img/login.png" alt="Formulario de login" width="300">
+<img src="img/login.png" alt="Formulario de login" >
 
 **Registro**  
-<img src="img/registro.png" alt="Formulario de registro" width="300">
+<img src="img/registro.png" alt="Formulario de registro">
 
 **Inicio**  
-<img src="img/inicio.png" alt="Vista de inicio" width="300">
+<img src="img/inicio.png" alt="Vista de inicio">
 
 **Productos**  
-<img src="img/productos.png" alt="Vista de productos" width="300">
+<img src="img/productos.png" alt="Vista de productos">
 
 **Por categoría**  
-<img src="img/categoría_deporte.png" alt="Filtrando por categoría" width="300">
+<img src="img/categoría_deporte.png" alt="Filtrando por categoría">
 
 **Perfil de usuario**  
-<img src="img/perfil.png" alt="Vista de perfil de usuario" width="300">
+<img src="img/perfil.png" alt="Vista de perfil de usuario">
 
 **Panel de administración**  
-<img src="img/panel_admin.png" alt="Panel de administración" width="300">
+<img src="img/panel_admin.png" alt="Panel de administración">
 
 **Modelo lógico**  
-<img src="img/modelo_lógico.png" alt="Diagrama del modelo lógico de la aplicación" width="300">
+<img src="img/modelo_lógico.png" alt="Diagrama del modelo lógico de la aplicación">
 
 
 
