@@ -121,15 +121,46 @@ MEDIA_ROOT = BASE_DIR / 'media'
 📡 Endpoints principales
 Método	Endpoint	             Descripción	                Autenticación
 POST	/register/	          Registro de usuario	                  No
-POST	/login/	          Inicio de sesión (devuelve token)	          No
-POST	/logout/	             Cierre de sesión	                  Sí (token)
-GET	/productos/	           Listado paginado de productos	          Sí
-POST	/compras/	            Crear una compra	                  Sí
+POST	/login/	          Inicio de sesión (devuelve token)	        No
+POST	/logout/	             Cierre de sesión	                    Sí (token)
+GET	/productos/	           Listado paginado de productos	        Sí
+POST	/compras/	            Crear una compra	                    Sí
+
+```
+
+## Imágenes
+
+Login
+<img src="img/login.png" alt="Formulario de login" width="300">
+
+Registro
+<img src="img/registro.png" alt="Formulario de registro" width="300">
+
+Inicio
+<img src="img/inicio.png" alt="Vista de inicio" width="300">
+
+Productos
+<img src="img/productos.png" alt="Vista de productos" width="300">
+
+Por categoría
+<img src="img/categoría_deporte.png" alt="Filtrando por categoría" width="300">
+
+Perfil de usuario
+<img src="img/perfil.png" alt="Vista de perfil de usuario" width="300">
+
+Panel de administración
+<img src="img/panel_admin.png" alt="Panel de administración" width="300">
 
 
-### Imágenes
+Modelo lógico
+<img src="img/modelo_lógico.png" alt="Diagrama del modelo lógico de la aplicación" width="300">
 
-![image alt](https://github.com/albcv/tienda_online/blob/f5f3c6f777a9a39b1851e999dc5d9b5ee9bf959e/img/login.png)
+
+
+
+
+
+
 
 
 
