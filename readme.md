@@ -127,4 +127,9 @@ GET	/productos/	           Listado paginado de productos	          Sí
 POST	/compras/	            Crear una compra	                  Sí
 
 
+### Imágenes
+
+![image alt](https://github.com/albcv/tienda_online/blob/f5f3c6f777a9a39b1851e999dc5d9b5ee9bf959e/img/login.png)
+
+
 
