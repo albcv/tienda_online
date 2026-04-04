@@ -4,7 +4,7 @@ from django.utils.html import format_html
 
 class ProductoAdmin(admin.ModelAdmin):
     # Filtro lateral por categoría
-    list_filter = ('categoria',)  # También puedes añadir 'moneda' si lo deseas
+    list_filter = ('categoria',)  
 
     # Definición base de fieldsets
     fieldsets = (
