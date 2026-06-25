@@ -20,16 +20,11 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
-
 
 ALLOWED_HOSTS = []
 
@@ -53,9 +48,9 @@ INSTALLED_APPS = [
     'tienda_app',
 ]
 
-# Agregar storages solo en producción 
+# Agregar storages solo en producción
 if not DEBUG:
-    INSTALLED_APPS.append('storages') 
+    INSTALLED_APPS.append('storages')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,7 +69,7 @@ ROOT_URLCONF = 'tienda_online.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], 
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -166,13 +161,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #  PRODUCTION STORAGE: SUPABASE (via S3 API)
 # ==============================================
 if not DEBUG:
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    
+    # Credenciales y configuración de AWS/S3
     AWS_ACCESS_KEY_ID = os.environ.get('SUPABASE_S3_ACCESS_KEY')
     AWS_SECRET_ACCESS_KEY = os.environ.get('SUPABASE_S3_SECRET_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('SUPABASE_STORAGE_BUCKET')
     AWS_S3_ENDPOINT_URL = f"{os.environ.get('SUPABASE_URL')}/storage/v1/s3"
     AWS_S3_REGION_NAME = os.environ.get('SUPABASE_S3_REGION', 'us-east-1')
     AWS_DEFAULT_ACL = 'public-read'
+    AWS_QUERYSTRING_AUTH = False
     
-    MEDIA_URL = f"{os.environ.get('SUPABASE_URL')}/storage/v1/object/public/{AWS_STORAGE_BUCKET_NAME}/"
+    AWS_S3_CUSTOM_DOMAIN = f"{os.environ.get('SUPABASE_URL').replace('https://', '')}/storage/v1/object/public/{AWS_STORAGE_BUCKET_NAME}"
+    
+    # Configuración de almacenamiento para Django 6.0 (usando STORAGES)
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
+    
+    # URL pública para los archivos media
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
