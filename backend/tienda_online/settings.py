@@ -174,6 +174,5 @@ if not DEBUG:
     AWS_S3_ENDPOINT_URL = f"{os.environ.get('SUPABASE_URL')}/storage/v1/s3"
     AWS_S3_REGION_NAME = os.environ.get('SUPABASE_S3_REGION', 'us-east-1')
     AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_KEY_PREFIX = 'media/'
     
     MEDIA_URL = f"{os.environ.get('SUPABASE_URL')}/storage/v1/object/public/{AWS_STORAGE_BUCKET_NAME}/"
