@@ -3,6 +3,7 @@ import { getProductos } from '../api/productos';
 import type { Producto } from '../api/productos';
 import { useCart } from '../components/CartContext';
 
+
 const Productos = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
   const [offset, setOffset] = useState(0);
@@ -14,6 +15,12 @@ const Productos = () => {
   const [searchInput, setSearchInput] = useState('');
   const [expandedDesc, setExpandedDesc] = useState<number | null>(null);
   const { addToCart } = useCart();
+
+  const getImageUrl = (ruta: string) => {
+  if (!ruta) return '';
+  if (ruta.startsWith('http')) return ruta; // ya es absoluta
+  return `http://localhost:8000${ruta}`; // relativa → se concatena
+};
 
   const fetchProductos = async (reset = false) => {
     if (loading) return;
@@ -132,7 +139,7 @@ const Productos = () => {
           <div key={producto.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="h-48 overflow-hidden">
               {producto.ruta_imagen ? (
-                <img src={producto.ruta_imagen} alt={producto.nombre} className="w-full h-full object-cover" />
+                <img src={getImageUrl(producto.ruta_imagen)} alt={producto.nombre} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full bg-gray-200 flex items-center justify-center">Sin imagen</div>
               )}

@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import logo from '../img/logo.avif';
 
 export function Inicio() {
+  const navigate = useNavigate();
+
+  const goToProductos = () => {
+    navigate('/productos');
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <div className="container mx-auto px-4 py-12 relative z-10">
@@ -18,6 +25,16 @@ export function Inicio() {
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             La plataforma definitiva para tus compras favoritas. Encuentra productos de calidad con los mejores precios.
           </p>
+
+          {/* 🔹 Botón para ir a Productos */}
+          <div className="mt-8">
+            <button
+              onClick={goToProductos}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            >
+              Ver Productos
+            </button>
+          </div>
         </div>
       </div>
     </div>
