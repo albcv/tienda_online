@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getProductos } from '../api/productos';
 import type { Producto } from '../api/productos';
 import { useCart } from '../components/CartContext';
+import { API_URL } from '../api/config';
 
 const Productos = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
@@ -132,7 +133,7 @@ const Productos = () => {
           <div key={producto.id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="h-48 overflow-hidden">
               {producto.ruta_imagen ? (
-                <img src={`http://localhost:8000${producto.ruta_imagen}`} alt={producto.nombre} className="w-full h-full object-cover" />
+                <img src={`${API_URL}${producto.ruta_imagen}`} alt={producto.nombre} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full bg-gray-200 flex items-center justify-center">Sin imagen</div>
               )}
